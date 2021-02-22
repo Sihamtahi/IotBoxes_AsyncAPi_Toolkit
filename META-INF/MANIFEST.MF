@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: Demo2
+Bundle-ManifestVersion: 2
+Bundle-Name: Demo2
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: Demo2; singleton:=true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-15

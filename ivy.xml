@@ -1,0 +1,7 @@
+<ivy-module version="2.0">
+    <info organisation="com.example" module="mymodule"/>
+    <dependencies>
+        <dependency org="com.google.code.gson" name="gson" rev="2.8.5"/>
+        <dependency org="org.eclipse.paho" name="org.eclipse.paho.client.mqttv3" rev="1.2.1"/>
+    </dependencies>
+</ivy-module>
