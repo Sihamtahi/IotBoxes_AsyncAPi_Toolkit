@@ -1,5 +1,6 @@
 package main;
 import java.text.MessageFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import iotbox._id_.monitor_.PublishStatus;
@@ -11,10 +12,35 @@ import iotbox._id_.monitor_.SubscribeStatus;
 public class Main {
 	public static void main(String[] args) throws Exception {
 		// TODO: Put your code he1e
-	
+	   // create a ligne Info 
+		
+		LineInfo line1 = LineInfo.newBuilder()
+				.withId("line A")
+				.addToPresses(
+						PressInfo.newBuilder()
+						.withId("Press A1")
+						.withTimestamp(Instant.now().toString())
+						.withValue(10.0)
+						.build()
+						)
+				.addToPresses(
+						PressInfo.newBuilder()
+						.withId("Press A2")
+						.withTimestamp(Instant.now().toString())
+						.withValue(15.0)
+						.build()
+						)
+				.build();
+		
+		PublishStatusParams para = PublishStatusParams.create()
+				.withId("box1");
+		
+		PublishStatus.publish ( line1, para);
+				
+				
 		try {
 			
-			SubscribeStatus.subscribe((message, params) -> {
+			/***SubscribeStatus.subscribe((message, params) -> {
 				// Inform about the message received
 				System.err.println(MessageFormat.format(
 						"Subscription to ''{0}'' with ID ''{1}'':\n{2} Presses at {3}",
@@ -24,7 +50,7 @@ public class Main {
 						params.getId(),
 						message.getId(), 
 						message.getPresses()));
-			});
+			});*/
 			
 			
 			PressInfo pr;
@@ -86,7 +112,9 @@ public class Main {
 		finally
 		
 		{
-			SubscribeStatus.unsubscribe();
+			/**SubscribeStatus.unsubscribe();*/
+			System.out.println("got it ");
+			
 		}
 	}
 }
